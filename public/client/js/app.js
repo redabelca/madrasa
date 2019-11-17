@@ -4552,44 +4552,105 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            columns: [{ title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' }, { title: 'Matricule', field: 'matricule', sortable: true }, { title: 'Photo', tdComp: __WEBPACK_IMPORTED_MODULE_5__dtmodules_DatatableImgPathField___default.a, sortable: false }, { title: 'Prenom fr', field: 'prenom_fr', sortable: true }, { title: 'Prenom ar', field: 'prenom_ar', sortable: true }, { title: 'Nom fr', field: 'nom_fr', sortable: true }, { title: 'Nom ar', field: 'nom_ar', sortable: true }, { title: 'Sexe', field: 'sexe', sortable: true }, { title: 'Cin', field: 'cin', sortable: true }, { title: 'Cne', field: 'cne', sortable: true }, { title: 'Massar', field: 'idmassar', sortable: true }, { title: 'Tel', field: 'tel', sortable: true }, { title: 'Adresse', field: 'adresse', sortable: true }, { title: 'Date Naissance', field: 'datenaissance', sortable: true }, { title: 'Date Premiere Entree', field: 'datepremiereentree', sortable: true }, { title: 'Email', field: 'email', sortable: true }, { title: 'Nationalite', field: 'nationalite', sortable: true }, { title: 'Groupesangin', field: 'groupesangin', sortable: true }, { title: 'Handicap', field: 'is_handicaped', tdComp: __WEBPACK_IMPORTED_MODULE_4__dtmodules_DatatableCheckbox___default.a, colStyle: 'width: 50px;' }, { title: 'Pediatre Nom', field: 'pediatrenom', sortable: true }, { title: 'Tele Pediatre', field: 'telpediatre', sortable: true }, { title: 'Allergies', field: 'allergies', sortable: true }, { title: 'Particularites', field: 'particularites', sortable: true }, { title: 'Traitement', field: 'traitement', sortable: true }, { title: 'nbr Annee Double', field: 'nbreanneedouble', sortable: true }, { title: 'Allergie Alimentaire', field: 'allergiealimentaire', sortable: true }, { title: 'Intolerance Alimentaire', field: 'intolerancealimentaire', sortable: true }, { title: 'Comportement Alimentaire', field: 'comportementalimentaire', sortable: true }, { title: 'Famille', field: 'famille', tdComp: __WEBPACK_IMPORTED_MODULE_2__dtmodules_DatatableSingle___default.a }, { title: 'Tuteur', field: 'tuteur', tdComp: __WEBPACK_IMPORTED_MODULE_2__dtmodules_DatatableSingle___default.a }, { title: 'Quartier', field: 'quartier', tdComp: __WEBPACK_IMPORTED_MODULE_2__dtmodules_DatatableSingle___default.a }, { title: 'Actions', tdComp: __WEBPACK_IMPORTED_MODULE_1__dtmodules_DatatableActions___default.a, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }],
-            query: { sort: 'id', order: 'desc' },
-            xprops: {
-                module: 'ElevesIndex',
-                route: 'eleves',
-                permission_prefix: 'eleve_'
-            }
-        };
-    },
-    created: function created() {
-        this.$root.relationships = this.relationships;
-        this.fetchData();
-    },
-    destroyed: function destroyed() {
-        this.resetState();
-    },
+  data: function data() {
+    return {
+      columns: [{
+        title: "#",
+        field: "id",
+        sortable: true,
+        colStyle: "width: 50px;",
+        shouldShow: true
+      }, {
+        title: "Matricule",
+        field: "matricule",
+        sortable: true,
+        shouldShow: true
+      }, { title: "Photo", tdComp: __WEBPACK_IMPORTED_MODULE_5__dtmodules_DatatableImgPathField___default.a, sortable: false }, {
+        title: "Prenom fr",
+        field: "prenom_fr",
+        sortable: true,
+        shouldShow: true
+      }, { title: "Prenom ar", field: "prenom_ar", sortable: true }, {
+        title: "Nom fr",
+        field: "nom_fr",
+        sortable: true,
+        shouldShow: true
+      }, { title: "Nom ar", field: "nom_ar", sortable: true }, { title: "Sexe", field: "sexe", sortable: true }, {
+        title: "Cin",
+        field: "cin",
+        sortable: true,
+        shouldShow: true
+      }, { title: "Cne", field: "cne", sortable: true }, { title: "Massar", field: "idmassar", sortable: true }, { title: "Tel", field: "tel", sortable: true }, { title: "Adresse", field: "adresse", sortable: true }, { title: "Date Naissance", field: "datenaissance", sortable: true }, {
+        title: "Date Premiere Entree",
+        field: "datepremiereentree",
+        sortable: true,
+        shouldShow: true
+      }, { title: "Email", field: "email", sortable: true }, { title: "Nationalite", field: "nationalite", sortable: true }, { title: "Groupesangin", field: "groupesangin", sortable: true }, {
+        title: "Handicap",
+        field: "is_handicaped",
+        tdComp: __WEBPACK_IMPORTED_MODULE_4__dtmodules_DatatableCheckbox___default.a,
+        colStyle: "width: 50px;"
+      }, { title: "Pediatre Nom", field: "pediatrenom", sortable: true }, { title: "Tele Pediatre", field: "telpediatre", sortable: true }, { title: "Allergies", field: "allergies", sortable: true }, { title: "Particularites", field: "particularites", sortable: true }, { title: "Traitement", field: "traitement", sortable: true }, { title: "nbr Annee Double", field: "nbreanneedouble", sortable: true }, {
+        title: "Allergie Alimentaire",
+        field: "allergiealimentaire",
+        sortable: true
+      }, {
+        title: "Intolerance Alimentaire",
+        field: "intolerancealimentaire",
+        sortable: true
+      }, {
+        title: "Comportement Alimentaire",
+        field: "comportementalimentaire",
+        sortable: true
+      }, { title: "Famille", field: "famille", tdComp: __WEBPACK_IMPORTED_MODULE_2__dtmodules_DatatableSingle___default.a }, { title: "Tuteur", field: "tuteur", tdComp: __WEBPACK_IMPORTED_MODULE_2__dtmodules_DatatableSingle___default.a }, { title: "Quartier", field: "quartier", tdComp: __WEBPACK_IMPORTED_MODULE_2__dtmodules_DatatableSingle___default.a }, {
+        title: "Actions",
+        tdComp: __WEBPACK_IMPORTED_MODULE_1__dtmodules_DatatableActions___default.a,
+        visible: true,
+        thClass: "text-right",
+        tdClass: "text-right",
+        colStyle: "width: 130px;",
+        shouldShow: true
+      }],
+      query: { sort: "id", order: "desc" },
+      xprops: {
+        module: "ElevesIndex",
+        route: "eleves",
+        permission_prefix: "eleve_"
+      }
+    };
+  },
+  created: function created() {
+    this.$root.relationships = this.relationships;
+    this.fetchData();
+  },
+  destroyed: function destroyed() {
+    this.resetState();
+  },
 
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapGetters"])('ElevesIndex', ['data', 'total', 'loading', 'relationships']), {
-        castedData: function castedData() {
-            return this.data.map(function (item) {
-                if (item.sexe == 1) item.sexe = 'Masculin';
-                if (item.sexe == 0) item.sexe = 'Feminin';
-                return item;
-            });
-        }
-    }),
-    watch: {
-        query: {
-            handler: function handler(query) {
-                this.setQuery(query);
-            },
-
-            deep: true
-        }
+  computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapGetters"])("ElevesIndex", ["data", "total", "loading", "relationships"]), {
+    castedData: function castedData() {
+      return this.data.map(function (item) {
+        if (item.sexe == 1) item.sexe = "Masculin";
+        if (item.sexe == 0) item.sexe = "Feminin";
+        return item;
+      });
     },
-    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('ElevesIndex', ['fetchData', 'setQuery', 'resetState']))
+    filteredColumns: function filteredColumns() {
+      return this.columns.filter(function (column) {
+        return column.shouldShow;
+      });
+    }
+  }),
+  watch: {
+    query: {
+      handler: function handler(query) {
+        this.setQuery(query);
+      },
+
+      deep: true
+    }
+  },
+  methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])("ElevesIndex", ["fetchData", "setQuery", "resetState"]))
 });
 
 /***/ }),
@@ -12044,7 +12105,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -43472,7 +43533,7 @@ var render = function() {
                           },
                           [
                             _c("i", { staticClass: "fa fa-plus" }),
-                            _vm._v(" Add new\n                            ")
+                            _vm._v(" Add new\n              ")
                           ]
                         )
                       : _vm._e(),
@@ -43489,7 +43550,7 @@ var render = function() {
                           staticClass: "fa fa-refresh",
                           class: { "fa-spin": _vm.loading }
                         }),
-                        _vm._v(" Refresh\n                            ")
+                        _vm._v(" Refresh\n              ")
                       ]
                     )
                   ],
@@ -43508,7 +43569,7 @@ var render = function() {
                   !_vm.loading
                     ? _c("datatable", {
                         attrs: {
-                          columns: _vm.columns,
+                          columns: _vm.filteredColumns,
                           data: _vm.castedData,
                           total: _vm.total,
                           query: _vm.query,
@@ -43550,7 +43611,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-xs-4 col-xs-offset-4" }, [
       _c("div", { staticClass: "alert text-center" }, [
         _c("i", { staticClass: "fa fa-spin fa-refresh" }),
-        _vm._v(" Loading\n                                ")
+        _vm._v(" Loading\n                ")
       ])
     ])
   }
