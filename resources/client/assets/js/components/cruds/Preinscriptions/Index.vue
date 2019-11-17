@@ -1,5 +1,5 @@
 <template>
-  <section class="content-wrapper" style="min-height: 960px;">
+  <section class="content-wrapper" style="min-height: 100vh;">
     <section class="content-header">
       <h1>Preinscription</h1>
     </section>
@@ -14,9 +14,10 @@
 
             <div class="box-body">
               <div class="btn-group">
+                  <!-- :to="{ name: xprops.route + '.create' }" -->
                 <router-link
                   v-if="$can(xprops.permission_prefix + 'create')"
-                  :to="{ name: xprops.route + '.create' }"
+                  :to="{ name: 'custom-eleves.create' }"
                   class="btn btn-success btn-sm"
                 >
                   <i class="fa fa-plus"></i> Add new

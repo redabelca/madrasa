@@ -29,7 +29,7 @@ class Create1573909369ElevesTable extends Migration
                 $table->string('adresse')->nullable();
                 $table->date('datenaissance')->nullable();
                 $table->date('datepremiereentree')->nullable();
-                $table->string('email');
+                $table->string('email')->nullable();
                 $table->string('nationalite')->nullable();
                 $table->string('groupesangin')->nullable();
                 $table->tinyInteger('is_handicaped')->nullable()->default('0');

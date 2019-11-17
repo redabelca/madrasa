@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import ChangePassword from '../components/ChangePassword.vue'
 import PreinscriptionsIndex from '../components/cruds/Preinscriptions/Index.vue'
 import PreinscriptionsCreate from '../components/cruds/Preinscriptions/Create.vue'
+import CustomPreinscriptionsCreate from '../components/cruds/Preinscriptions/CustomCreate.vue'
 import PreinscriptionsShow from '../components/cruds/Preinscriptions/Show.vue'
 import PreinscriptionsEdit from '../components/cruds/Preinscriptions/Edit.vue'
 import InscriptionsIndex from '../components/cruds/Inscriptions/Index.vue'
@@ -55,6 +56,7 @@ import CircuitsShow from '../components/cruds/Circuits/Show.vue'
 import CircuitsEdit from '../components/cruds/Circuits/Edit.vue'
 import ElevesIndex from '../components/cruds/Eleves/Index.vue'
 import ElevesCreate from '../components/cruds/Eleves/Create.vue'
+import CustomElevesCreate from '../components/cruds/Eleves/CustomCreate.vue'
 import ElevesShow from '../components/cruds/Eleves/Show.vue'
 import ElevesEdit from '../components/cruds/Eleves/Edit.vue'
 import FamillesIndex from '../components/cruds/Familles/Index.vue'
@@ -79,6 +81,7 @@ Vue.use(VueRouter)
 const routes = [
     { path: '/change-password', component: ChangePassword, name: 'auth.change_password' },
     { path: '/preinscriptions', component: PreinscriptionsIndex, name: 'preinscriptions.index' },
+    { path: '/preinscriptions/custom-create/:eleveID', component: CustomPreinscriptionsCreate, name: 'custom-preinscriptions.create' , props:true },
     { path: '/preinscriptions/create', component: PreinscriptionsCreate, name: 'preinscriptions.create' },
     { path: '/preinscriptions/:id', component: PreinscriptionsShow, name: 'preinscriptions.show' },
     { path: '/preinscriptions/:id/edit', component: PreinscriptionsEdit, name: 'preinscriptions.edit' },
@@ -130,6 +133,7 @@ const routes = [
     { path: '/circuits/:id', component: CircuitsShow, name: 'circuits.show' },
     { path: '/circuits/:id/edit', component: CircuitsEdit, name: 'circuits.edit' },
     { path: '/eleves', component: ElevesIndex, name: 'eleves.index' },
+    { path: '/eleves/custom-create', component: CustomElevesCreate, name: 'custom-eleves.create' },
     { path: '/eleves/create', component: ElevesCreate, name: 'eleves.create' },
     { path: '/eleves/:id', component: ElevesShow, name: 'eleves.show' },
     { path: '/eleves/:id/edit', component: ElevesEdit, name: 'eleves.edit' },

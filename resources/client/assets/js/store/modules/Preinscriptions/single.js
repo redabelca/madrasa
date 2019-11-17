@@ -17,7 +17,6 @@ function initialState() {
         },
         anneescolairesAll: [],
         elevesAll: [],
-        
         loading: false,
     }
 }
@@ -27,13 +26,19 @@ const getters = {
     loading: state => state.loading,
     anneescolairesAll: state => state.anneescolairesAll,
     elevesAll: state => state.elevesAll,
-    
+
 }
 
 const actions = {
-    storeData({ commit, state, dispatch }) {
+    storeData({
+        commit,
+        state,
+        dispatch
+    }) {
         commit('setLoading', true)
-        dispatch('Alert/resetState', null, { root: true })
+        dispatch('Alert/resetState', null, {
+            root: true
+        })
 
         return new Promise((resolve, reject) => {
             let params = new FormData();
@@ -74,12 +79,16 @@ const actions = {
                 })
                 .catch(error => {
                     let message = error.response.data.message || error.message
-                    let errors  = error.response.data.errors
+                    let errors = error.response.data.errors
 
                     dispatch(
-                        'Alert/setAlert',
-                        { message: message, errors: errors, color: 'danger' },
-                        { root: true })
+                        'Alert/setAlert', {
+                            message: message,
+                            errors: errors,
+                            color: 'danger'
+                        }, {
+                            root: true
+                        })
 
                     reject(error)
                 })
@@ -88,9 +97,15 @@ const actions = {
                 })
         })
     },
-    updateData({ commit, state, dispatch }) {
+    updateData({
+        commit,
+        state,
+        dispatch
+    }) {
         commit('setLoading', true)
-        dispatch('Alert/resetState', null, { root: true })
+        dispatch('Alert/resetState', null, {
+            root: true
+        })
 
         return new Promise((resolve, reject) => {
             let params = new FormData();
@@ -132,12 +147,16 @@ const actions = {
                 })
                 .catch(error => {
                     let message = error.response.data.message || error.message
-                    let errors  = error.response.data.errors
+                    let errors = error.response.data.errors
 
                     dispatch(
-                        'Alert/setAlert',
-                        { message: message, errors: errors, color: 'danger' },
-                        { root: true })
+                        'Alert/setAlert', {
+                            message: message,
+                            errors: errors,
+                            color: 'danger'
+                        }, {
+                            root: true
+                        })
 
                     reject(error)
                 })
@@ -146,64 +165,97 @@ const actions = {
                 })
         })
     },
-    fetchData({ commit, dispatch }, id) {
+    fetchData({
+        commit,
+        dispatch
+    }, id) {
         axios.get('/api/v1/preinscriptions/' + id)
             .then(response => {
                 commit('setItem', response.data.data)
             })
 
         dispatch('fetchAnneescolairesAll')
-    dispatch('fetchElevesAll')
+        dispatch('fetchElevesAll')
     },
-    fetchAnneescolairesAll({ commit }) {
+    fetchAnneescolairesAll({
+        commit
+    }) {
         axios.get('/api/v1/anneescolaires')
             .then(response => {
                 commit('setAnneescolairesAll', response.data.data)
             })
     },
-    fetchElevesAll({ commit }) {
+    fetchElevesAll({
+        commit
+    }) {
         axios.get('/api/v1/eleves')
             .then(response => {
                 commit('setElevesAll', response.data.data)
             })
     },
-    setNomprofesseurtest({ commit }, value) {
+    setNomprofesseurtest({
+        commit
+    }, value) {
         commit('setNomprofesseurtest', value)
     },
-    setNotetest({ commit }, value) {
+    setNotetest({
+        commit
+    }, value) {
         commit('setNotetest', value)
     },
-    setResultattest({ commit }, value) {
+    setResultattest({
+        commit
+    }, value) {
         commit('setResultattest', value)
     },
-    setIs_acceptedintest({ commit }, value) {
+    setIs_acceptedintest({
+        commit
+    }, value) {
         commit('setIs_acceptedintest', value)
     },
-    setFraistest({ commit }, value) {
+    setFraistest({
+        commit
+    }, value) {
         commit('setFraistest', value)
     },
-    setFraispayed({ commit }, value) {
+    setFraispayed({
+        commit
+    }, value) {
         commit('setFraispayed', value)
     },
-    setTransport({ commit }, value) {
+    setTransport({
+        commit
+    }, value) {
         commit('setTransport', value)
     },
-    setDatetest({ commit }, value) {
+    setDatetest({
+        commit
+    }, value) {
         commit('setDatetest', value)
     },
-    setDatelimiteinscription({ commit }, value) {
+    setDatelimiteinscription({
+        commit
+    }, value) {
         commit('setDatelimiteinscription', value)
     },
-    setObservations({ commit }, value) {
+    setObservations({
+        commit
+    }, value) {
         commit('setObservations', value)
     },
-    setAnneescolaire({ commit }, value) {
+    setAnneescolaire({
+        commit
+    }, value) {
         commit('setAnneescolaire', value)
     },
-    setEleve({ commit }, value) {
+    setEleve({
+        commit
+    }, value) {
         commit('setEleve', value)
     },
-    resetState({ commit }) {
+    resetState({
+        commit
+    }) {
         commit('resetState')
     }
 }
@@ -254,7 +306,7 @@ const mutations = {
     setElevesAll(state, value) {
         state.elevesAll = value
     },
-    
+
     setLoading(state, loading) {
         state.loading = loading
     },

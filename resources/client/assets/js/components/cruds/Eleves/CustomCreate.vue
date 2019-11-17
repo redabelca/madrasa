@@ -1,7 +1,7 @@
 <template>
     <section class="content-wrapper" style="min-height: 100vh;">
         <section class="content-header">
-            <h1>Tuteur</h1>
+            <h1>Etape 1 : Eleve</h1>
         </section>
 
         <section class="content">
@@ -10,7 +10,7 @@
                     <form @submit.prevent="submitForm" novalidate>
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Edit</h3>
+                                <h3 class="box-title">Create</h3>
                             </div>
 
                             <div class="box-body">
@@ -65,90 +65,37 @@
                                             >
                                 </div>
                                 <div class="form-group">
-                                    <label for="adresse">Adresse *</label>
+                                    <label for="sexe">Sexe</label>
                                     <input
-                                            type="text"
+                                            type="number"
                                             class="form-control"
-                                            name="adresse"
-                                            placeholder="Enter Adresse *"
-                                            :value="item.adresse"
-                                            @input="updateAdresse"
+                                            name="sexe"
+                                            placeholder="Enter Sexe"
+                                            :value="item.sexe"
+                                            @input="updateSexe"
                                             >
                                 </div>
                                 <div class="form-group">
-                                    <label for="cin">Cin</label>
+                                    <label for="datenaissance">Date Naissance *</label>
+                                    <date-picker
+                                            :value="item.datenaissance"
+                                            :config="$root.dpconfigDate"
+                                            name="datenaissance"
+                                            placeholder="Enter Date Naissance *"
+                                            @dp-change="updateDatenaissance"
+                                            >
+                                    </date-picker>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nationalite">Nationalite</label>
                                     <input
                                             type="text"
                                             class="form-control"
-                                            name="cin"
-                                            placeholder="Enter Cin"
-                                            :value="item.cin"
-                                            @input="updateCin"
+                                            name="nationalite"
+                                            placeholder="Enter Nationalite"
+                                            :value="item.nationalite"
+                                            @input="updateNationalite"
                                             >
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input
-                                            type="text"
-                                            class="form-control"
-                                            name="email"
-                                            placeholder="Enter Email"
-                                            :value="item.email"
-                                            @input="updateEmail"
-                                            >
-                                </div>
-                                <div class="form-group">
-                                    <label for="tel">Tel *</label>
-                                    <input
-                                            type="text"
-                                            class="form-control"
-                                            name="tel"
-                                            placeholder="Enter Tel *"
-                                            :value="item.tel"
-                                            @input="updateTel"
-                                            >
-                                </div>
-                                <div class="form-group">
-                                    <label for="ville">Ville</label>
-                                    <input
-                                            type="text"
-                                            class="form-control"
-                                            name="ville"
-                                            placeholder="Enter Ville"
-                                            :value="item.ville"
-                                            @input="updateVille"
-                                            >
-                                </div>
-                                <div class="form-group">
-                                    <label for="profession">Profession</label>
-                                    <input
-                                            type="text"
-                                            class="form-control"
-                                            name="profession"
-                                            placeholder="Enter Profession"
-                                            :value="item.profession"
-                                            @input="updateProfession"
-                                            >
-                                </div>
-                                <div class="form-group">
-                                    <label for="lienparente">Lien Parente</label>
-                                    <v-select
-                                            name="lienparente"
-                                            label="label"
-                                            @input="updateLienparente"
-                                            :value="item.lienparente"
-                                            :options="lienparentesAll"
-                                            />
-                                </div>
-                                <div class="form-group">
-                                    <label for="famille">Famille</label>
-                                    <v-select
-                                            name="famille"
-                                            label="nom"
-                                            @input="updateFamille"
-                                            :value="item.famille"
-                                            :options="famillesAll"
-                                            />
                                 </div>
                             </div>
 
@@ -180,22 +127,41 @@ export default {
         }
     },
     computed: {
-        ...mapGetters('TuteursSingle', ['item', 'loading', 'lienparentesAll', 'famillesAll']),
+        ...mapGetters('ElevesSingle', ['item', 'loading', 'famillesAll', 'tuteursAll', 'quartiersAll'])
     },
     created() {
-        this.fetchData(this.$route.params.id)
+        this.fetchFamillesAll(),
+        this.fetchTuteursAll(),
+        this.fetchQuartiersAll()
     },
     destroyed() {
         this.resetState()
     },
-    watch: {
-        "$route.params.id": function() {
-            this.resetState()
-            this.fetchData(this.$route.params.id)
-        }
-    },
     methods: {
-        ...mapActions('TuteursSingle', ['fetchData', 'updateData', 'resetState', 'setPrenom_fr', 'setPrenom_ar', 'setNom_fr', 'setNom_ar', 'setAdresse', 'setCin', 'setEmail', 'setTel', 'setVille', 'setProfession', 'setLienparente', 'setFamille']),
+        ...mapActions('ElevesSingle', ['storeData', 'resetState', 'setMatricule', 'setImg_path', 'setPrenom_fr', 'setPrenom_ar', 'setNom_fr', 'setNom_ar', 'setSexe', 'setCin', 'setCne', 'setIdmassar', 'setTel', 'setAdresse', 'setDatenaissance', 'setDatepremiereentree', 'setEmail', 'setNationalite', 'setGroupesangin', 'setIs_handicaped', 'setPediatrenom', 'setTelpediatre', 'setAllergies', 'setParticularites', 'setTraitement', 'setNbreanneedouble', 'setAllergiealimentaire', 'setIntolerancealimentaire', 'setComportementalimentaire', 'setFamille', 'setTuteur', 'setQuartier', 'fetchFamillesAll', 'fetchTuteursAll', 'fetchQuartiersAll']),
+        updateMatricule(e) {
+            this.setMatricule(e.target.value)
+        },
+        removeImg_path(e, id) {
+            this.$swal({
+                title: 'Are you sure?',
+                text: "To fully delete the file submit the form.",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Delete',
+                confirmButtonColor: '#dd4b39',
+                focusCancel: true,
+                reverseButtons: true
+            }).then(result => {
+                if (typeof result.dismiss === "undefined") {
+                    this.setImg_path('');
+                }
+            })
+        },
+        updateImg_path(e) {
+            this.setImg_path(e.target.files[0]);
+            this.$forceUpdate();
+        },
         updatePrenom_fr(e) {
             this.setPrenom_fr(e.target.value)
         },
@@ -208,35 +174,84 @@ export default {
         updateNom_ar(e) {
             this.setNom_ar(e.target.value)
         },
-        updateAdresse(e) {
-            this.setAdresse(e.target.value)
+        updateSexe(e) {
+            this.setSexe(e.target.value)
         },
         updateCin(e) {
             this.setCin(e.target.value)
         },
-        updateEmail(e) {
-            this.setEmail(e.target.value)
+        updateCne(e) {
+            this.setCne(e.target.value)
+        },
+        updateIdmassar(e) {
+            this.setIdmassar(e.target.value)
         },
         updateTel(e) {
             this.setTel(e.target.value)
         },
-        updateVille(e) {
-            this.setVille(e.target.value)
+        updateAdresse(e) {
+            this.setAdresse(e.target.value)
         },
-        updateProfession(e) {
-            this.setProfession(e.target.value)
+        updateDatenaissance(e) {
+            this.setDatenaissance(e.target.value)
         },
-        updateLienparente(value) {
-            this.setLienparente(value)
+        updateDatepremiereentree(e) {
+            this.setDatepremiereentree(e.target.value)
+        },
+        updateEmail(e) {
+            this.setEmail(e.target.value)
+        },
+        updateNationalite(e) {
+            this.setNationalite(e.target.value)
+        },
+        updateGroupesangin(e) {
+            this.setGroupesangin(e.target.value)
+        },
+        updateIs_handicaped(e) {
+            this.setIs_handicaped(e.target.checked)
+        },
+        updatePediatrenom(e) {
+            this.setPediatrenom(e.target.value)
+        },
+        updateTelpediatre(e) {
+            this.setTelpediatre(e.target.value)
+        },
+        updateAllergies(e) {
+            this.setAllergies(e.target.value)
+        },
+        updateParticularites(e) {
+            this.setParticularites(e.target.value)
+        },
+        updateTraitement(e) {
+            this.setTraitement(e.target.value)
+        },
+        updateNbreanneedouble(e) {
+            this.setNbreanneedouble(e.target.value)
+        },
+        updateAllergiealimentaire(e) {
+            this.setAllergiealimentaire(e.target.value)
+        },
+        updateIntolerancealimentaire(e) {
+            this.setIntolerancealimentaire(e.target.value)
+        },
+        updateComportementalimentaire(e) {
+            this.setComportementalimentaire(e.target.value)
         },
         updateFamille(value) {
             this.setFamille(value)
         },
+        updateTuteur(value) {
+            this.setTuteur(value)
+        },
+        updateQuartier(value) {
+            this.setQuartier(value)
+        },
         submitForm() {
-            this.updateData()
-                .then(() => {
-                    this.$router.push({ name: 'tuteurs.index' })
-                    this.$eventHub.$emit('update-success')
+            this.storeData()
+                .then((eleveID) => {
+                    // this.$router.push({ name: 'eleves.index' })
+                    this.$router.push({ name: 'custom-preinscriptions.create', params: { eleveID } })
+                    this.$eventHub.$emit('create-success')
                 })
                 .catch((error) => {
                     console.error(error)

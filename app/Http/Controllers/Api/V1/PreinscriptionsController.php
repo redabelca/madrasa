@@ -38,7 +38,6 @@ class PreinscriptionsController extends Controller
 
         $preinscription = Preinscription::create($request->all());
         
-        
 
         return (new PreinscriptionResource($preinscription))
             ->response()

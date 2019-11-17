@@ -1,5 +1,5 @@
 <template>
-    <section class="content-wrapper" style="min-height: 960px;">
+    <section class="content-wrapper" style="min-height: 100vh;">
         <section class="content-header">
             <h1>Vehicule</h1>
         </section>

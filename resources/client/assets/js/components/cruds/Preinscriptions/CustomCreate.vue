@@ -1,7 +1,7 @@
 <template>
   <section class="content-wrapper" style="min-height: 100vh;">
     <section class="content-header">
-      <h1>Preinscription</h1>
+      <h1>Etape 2 : Preinscription</h1>
     </section>
 
     <section class="content">
@@ -147,16 +147,6 @@
                     :options="anneescolairesAll"
                   />
                 </div>
-                <div class="form-group">
-                  <label for="eleve">Eleve *</label>
-                  <v-select
-                    name="eleve"
-                    label="prenom_fr"
-                    @input="updateEleve"
-                    :value="item.eleve"
-                    :options="elevesAll"
-                  />
-                </div>
               </div>
 
               <div class="box-footer">
@@ -179,9 +169,10 @@
 import { mapGetters, mapActions } from "vuex";
 
 export default {
+  props: ["eleveID"],
   data() {
     return {
-      // Code...
+      eleve: {}
     };
   },
   computed: {
@@ -192,8 +183,11 @@ export default {
       "elevesAll"
     ])
   },
-  created() {
+  async created() {
     this.fetchAnneescolairesAll(), this.fetchElevesAll();
+    this.setEleve(
+      (await axios.get("/api/v1/eleves/" + this.eleveID)).data.data
+    );
   },
   destroyed() {
     this.resetState();
