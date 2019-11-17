@@ -14,13 +14,13 @@
 
             <li v-if="$can('preinscription_access')">
                 <router-link :to="{ name: 'preinscriptions.index' }">
-                    <i class="fa fa-gears"></i>
+                    <i class="fa fa-book"></i>
                     <span>@lang('quickadmin.preinscription.title')</span>
                 </router-link>
             </li>
             <li v-if="$can('inscription_access')">
                 <router-link :to="{ name: 'inscriptions.index' }">
-                    <i class="fa fa-gears"></i>
+                    <i class="fa fa-user-plus"></i>
                     <span>@lang('quickadmin.inscription.title')</span>
                 </router-link>
             </li>
