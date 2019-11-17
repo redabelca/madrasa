@@ -66,14 +66,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="sexe">Sexe</label>
-                                    <input
-                                            type="number"
-                                            class="form-control"
-                                            name="sexe"
-                                            placeholder="Enter Sexe"
-                                            :value="item.sexe"
-                                            @input="updateSexe"
-                                            >
+                                    <br>
+                                    <span>
+                                        <input type="radio" name="sexe" 
+                                              :value="1"
+                                            @input="updateSexe">
+                                        Masculin
+                                    </span>
+                                    <span>
+                                        <input type="radio" name="sexe"
+                                            :value="2"
+                                            @input="updateSexe">
+                                        Feminin
+                                    </span> 
                                 </div>
                                 <div class="form-group">
                                     <label for="datenaissance">Date Naissance *</label>

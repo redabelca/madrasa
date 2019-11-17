@@ -96,14 +96,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="sexe">Sexe</label>
-                                    <input
-                                            type="number"
-                                            class="form-control"
-                                            name="sexe"
-                                            placeholder="Enter Sexe"
-                                            :value="item.sexe"
-                                            @input="updateSexe"
-                                            >
+                                    <br>
+                                    <span>
+                                        <input type="radio" name="sexe" 
+                                              :value="1"
+                                            @input="updateSexe">
+                                        Masculin
+                                    </span>
+                                    <span>
+                                        <input type="radio" name="sexe"
+                                            :value="0"
+                                            @input="updateSexe">
+                                        Feminin
+                                    </span> 
                                 </div>
                                 <div class="form-group">
                                     <label for="cin">Cin</label>
@@ -526,5 +531,5 @@ export default {
 
 
 <style scoped>
-
+[for="sexe"] + br + span { margin-right: 1rem }
 </style>

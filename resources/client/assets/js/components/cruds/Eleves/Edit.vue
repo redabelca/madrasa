@@ -96,14 +96,21 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="sexe">Sexe</label>
-                                    <input
-                                            type="number"
-                                            class="form-control"
-                                            name="sexe"
-                                            placeholder="Enter Sexe"
-                                            :value="item.sexe"
+                                    <br>
+                                    <span>
+                                        <input type="radio" name="sexe" 
+                                              :value="1"
                                             @input="updateSexe"
-                                            >
+                                            checked="{item.sexe==1}">
+                                        Masculin
+                                    </span>
+                                    <span>
+                                        <input type="radio" name="sexe"
+                                            :value="0"
+                                            @input="updateSexe"
+                                            checked="{item.sexe==0}">
+                                        Feminin
+                                    </span> 
                                 </div>
                                 <div class="form-group">
                                     <label for="cin">Cin</label>

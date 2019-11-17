@@ -40,7 +40,7 @@
                             <datatable
                                     v-if="!loading"
                                     :columns="columns"
-                                    :data="data"
+                                    :data="castedData"
                                     :total="total"
                                     :query="query"
                                     :xprops="xprops"
@@ -116,6 +116,13 @@ export default {
     },
     computed: {
         ...mapGetters('ElevesIndex', ['data', 'total', 'loading', 'relationships']),
+        castedData(){
+            return this.data.map(item=>{
+                if (item.sexe == 1) item.sexe = 'Masculin';
+                if (item.sexe == 0) item.sexe = 'Feminin';
+                return item;
+            })
+        }
     },
     watch: {
         query: {

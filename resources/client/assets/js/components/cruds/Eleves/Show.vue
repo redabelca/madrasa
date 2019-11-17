@@ -51,7 +51,8 @@
                                             </tr>
                                         <tr>
                                             <th>Sexe</th>
-                                            <td>{{ item.sexe }}</td>
+                                            <td v-if="item.sexe==0">{{ 'Feminin' }}</td>
+                                            <td v-if="item.sexe==1">{{ 'Masculin' }}</td>
                                             </tr>
                                         <tr>
                                             <th>Cin</th>
