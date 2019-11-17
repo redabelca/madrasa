@@ -18,7 +18,7 @@ class InscriptionsController extends Controller
     {
         
 
-        return new InscriptionResource(Inscription::with(['classe', 'circuit', 'niveau', 'anneescolaire', 'preinscription'])->get());
+        return new InscriptionResource(Inscription::with(['classe', 'circuit', 'niveau', 'anneescolaire', 'preinscription.eleve'])->get());
     }
 
     public function show($id)

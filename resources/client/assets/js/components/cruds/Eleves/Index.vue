@@ -40,7 +40,7 @@
               <datatable
                 v-if="!loading"
                 :columns="filteredColumns"
-                :data="castedData"
+                :data="data"
                 :total="total"
                 :query="query"
                 :xprops="xprops"
@@ -61,6 +61,7 @@ import DatatableSingle from "../../dtmodules/DatatableSingle";
 import DatatableList from "../../dtmodules/DatatableList";
 import DatatableCheckbox from "../../dtmodules/DatatableCheckbox";
 import DatatableImgPathField from "./dtmodules/DatatableImgPathField";
+import sexeTdComponent from "./partials/sexeTdComponent";
 
 export default {
   data() {
@@ -94,7 +95,13 @@ export default {
           shouldShow: true
         },
         { title: "Nom ar", field: "nom_ar", sortable: true },
-        { title: "Sexe", field: "sexe", sortable: true },
+        {
+          title: "Sexe",
+          field: "sexe",
+          sortable: true,
+          shouldShow: true,
+          tdComp: sexeTdComponent
+        },
         {
           title: "Cin",
           field: "cin",
@@ -172,13 +179,6 @@ export default {
   },
   computed: {
     ...mapGetters("ElevesIndex", ["data", "total", "loading", "relationships"]),
-    castedData() {
-      return this.data.map(item => {
-        if (item.sexe == 1) item.sexe = "Masculin";
-        if (item.sexe == 0) item.sexe = "Feminin";
-        return item;
-      });
-    },
     filteredColumns() {
       return this.columns.filter(column => column.shouldShow);
     }

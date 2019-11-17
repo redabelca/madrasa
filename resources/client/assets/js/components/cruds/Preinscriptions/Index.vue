@@ -14,7 +14,7 @@
 
             <div class="box-body">
               <div class="btn-group">
-                  <!-- :to="{ name: xprops.route + '.create' }" -->
+                <!-- :to="{ name: xprops.route + '.create' }" -->
                 <router-link
                   v-if="$can(xprops.permission_prefix + 'create')"
                   :to="{ name: 'custom-eleves.create' }"
@@ -61,12 +61,26 @@ import DatatableActions from "../../dtmodules/DatatableActions";
 import DatatableSingle from "../../dtmodules/DatatableSingle";
 import DatatableList from "../../dtmodules/DatatableList";
 import DatatableCheckbox from "../../dtmodules/DatatableCheckbox";
+import InscriptionButton from "./partials/InscriptionButton";
 
 export default {
   data() {
     return {
       columns: [
-        { title: "#", field: "id", sortable: true, colStyle: "width: 50px;" },
+        {
+          title: "#",
+          field: "id",
+          sortable: true,
+          colStyle: "width: 50px;",
+          shouldShow: true
+        },
+        {
+          title: "Inscription",
+          field: "inscription",
+          sortable: true,
+          tdComp: InscriptionButton,
+          shouldShow: true
+        },
         {
           title: "Nom Professeur Test",
           field: "nomprofesseurtest",
@@ -111,7 +125,11 @@ export default {
         {
           title: "Eleve",
           field: "eleve",
-          tdComp: DatatableSingle,
+          tdComp: DatatableSingle
+        },
+        {
+          title: "ID Eleve",
+          field: "eleve_id",
         },
         {
           title: "Prenom",
@@ -137,7 +155,7 @@ export default {
       xprops: {
         module: "PreinscriptionsIndex",
         route: "preinscriptions",
-        permission_prefix: "preinscription_"
+        permission_prefix: "preinscription_",
       }
     };
   },
