@@ -169,7 +169,7 @@
                     </li>
                 </ul>
             </li>
-            <li v-if="$can('lienparente_access')">
+            {{-- <li v-if="$can('lienparente_access')">
                 <router-link :to="{ name: 'lienparentes.index' }">
                     <i class="fa fa-gears"></i>
                     <span>@lang('quickadmin.lienparente.title')</span>
@@ -180,7 +180,7 @@
                     <i class="fa fa-gears"></i>
                     <span>@lang('quickadmin.commune.title')</span>
                 </router-link>
-            </li>
+            </li> --}}
 
             <li>
                 <router-link :to="{ name: 'auth.change_password' }">
